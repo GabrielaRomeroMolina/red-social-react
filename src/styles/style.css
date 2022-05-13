@@ -18,7 +18,7 @@ a{
     color: white;
 }
 .col-sm-4 {
-    background-color: rgb(241, 247, 244);
+    background-color: rgb(70, 78, 74);
     padding: 1em;
     border-radius: 2em;
     width: 20em;
@@ -27,4 +27,11 @@ a{
 .btn-success {
     justify-content: center;
     align-items: center;
+}
+img {
+    width: 5em;
+    height: 5em;
+    justify-content: center;
+    align-self: center;
+    border-radius: 1em;
 }

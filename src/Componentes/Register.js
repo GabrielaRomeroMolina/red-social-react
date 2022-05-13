@@ -2,6 +2,7 @@ import { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext'
 import '../styles/style.css';
+import  helpcode from '../assets/img/Help.png'
 
 export function Register () {
     const navigate = useNavigate()
@@ -28,7 +29,9 @@ export function Register () {
             <div className = "col-sm-8">
             </div>
             <form className = "col-sm-4" onSubmit={handleSubmit}>
-                
+                <div className="helpcode">
+                    <img src= {helpcode} />
+                </div>
                 <div className="col">
                     <input 
                     className="form-control my-4"

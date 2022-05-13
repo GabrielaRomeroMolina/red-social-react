@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
 import { useAuth } from '../context/authContext'
-import "./Componentes/Help.png";
+import  helpcode from '../assets/img/Help.png'
 
 
 export function Login(){ 
@@ -33,8 +33,8 @@ export function Login(){
             <div className='col-sm-8'>
             </div>
             <form className = "col-sm-4" onSubmit={onclick}>
-            <div>
-                <img src= "./Help.png" />
+            <div className="helpcode">
+                <img src= {helpcode} />
             </div>
                 <div className = "col">
                     <input 
