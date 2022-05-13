@@ -1,24 +1,28 @@
 import {Fragment, useState} from 'react';
-
-const Wall = () => {
+import '../styles/style.css';
+export function Wall() {
     return(
         <Fragment>
-            <form>
+            <form className = "row">
                 <div>
-                    <input placeholder="Nombre">
-                        
-                    </input>
+                    <input 
+                    className='form-control'
+                    placeholder="Nombre"
+                    type="text"
+                    />   
                 </div>
                 <div>
-                    <input placeholder="Publicación">
-                        
-                    </input>
+                <textarea 
+                className='form-control'
+                id="publicación" name="publicación">
+                </textarea>
                 </div>
                 <div>
-                    <button type="submit">Publicar</button>
+                    <button 
+                    className="btn btn-success" 
+                    type="submit">Publicar</button>
                 </div>
             </form>
         </Fragment>
     );
 }
-export default Wall;

@@ -1,0 +1,30 @@
+* {
+    padding: 0em;
+    margin: 0em;
+}
+body {
+    background: url(../fondoApp.jpg);
+    background-size: cover;
+    background-attachment: fixed;  
+    
+}
+.App {
+    min-height: 100vh;
+}
+p{
+    color: white;
+}
+a{
+    color: white;
+}
+.col-sm-4 {
+    background-color: rgb(241, 247, 244);
+    padding: 1em;
+    border-radius: 2em;
+    width: 20em;
+    height: 30em;
+}
+.btn-success {
+    justify-content: center;
+    align-items: center;
+}
