@@ -21,7 +21,25 @@ export function Register () {
             await singup(user.email, user.password)
             navigate("/");
         }catch(error){
-            setError(error.message);
+            if(error.code==="auth/user-not-found"){
+                setError("usuario no registrado");
+            }
+            else if(error.code==="auth/wrong-password"){
+                setError("contraseña incorrecta");
+            }
+            else if(error.code==="auth/invalid-email"){
+                setError("correo invalido")
+            }
+            else if(error.code==="auth/internal-error"){
+                setError("ingrese contraseña")
+            }
+            else if(error.code==="auth/weak-password"){
+                setError("La contraseña debe tener al menos 6 caracteres")
+            }
+            else if(error.code==="auth/missing-email"){
+                setError("Ingrese un correo electronico")
+            }
+            /*setError(error.message);*/
         }        
     };      
     return(   
@@ -32,29 +50,24 @@ export function Register () {
                 <div className="helpcode">
                     <img src= {helpcode} />
                 </div>
-                <div className="col">
-                    <input 
-                    className="form-control my-4"
-                    placeholder="Ingrese email"
-                    type="text"
-                    name="email"
-                    onChange={handleInputChange}
-                    />
-                </div>
-                <div className="col">
                 <input 
-                    className="form-control my-4"
-                    placeholder="Ingrese contraseña"
-                    type="password"
-                    name="password"
-                    onChange={handleInputChange}
-                    />
-                </div>
-                <div>
-                    <button 
-                    className="btn btn-success"
-                    type="submit">Registrarme</button>
-                </div>
+                className="form-control my-4"
+                placeholder="Ingrese email"
+                type="text"
+                name="email"
+                onChange={handleInputChange}
+                />
+                <input 
+                className="form-control my-4"
+                placeholder="Ingrese contraseña"
+                type="password"
+                name="password"
+                onChange={handleInputChange}
+                />
+                <button 
+                className="btn btn-success"
+                type="submit">Registrarme</button>
+                
                 {error && <p>{error}</p>}
             </form>
         </div>    
