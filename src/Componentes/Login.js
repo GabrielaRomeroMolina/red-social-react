@@ -22,66 +22,68 @@ export function Login(){
                 await login(user.email, user.password)
                 navigate("/Wall")
             }catch(error){
-            setError(error.message);
+                if(error.code==="auth/user-not-found"){
+                    setError("usuario no registrado");
+                }
+                else if(error.code==="auth/wrong-password"){
+                    setError("contraseña incorrecta");
+                }
+                else if(error.code==="auth/invalid-email"){
+                    setError("correo invalido")
+                }
+                else if(error.code==="auth/internal-error"){
+                    setError("ingrese contraseña")
+                }
+                /*setError(error.message);*/
             }              
         };
         const loginGoogle = () => {
             google(); 
         }
     return(
-        <div className='row'>   
-            <div className='col-sm-8'>
+        <div className='container'>   
+            <div className='col-sm-7'>
             </div>
-            <form className = "col-sm-4" onSubmit={onclick}>
+            <form className = 'col-sm-5' onSubmit={onclick}>
             <div className="helpcode">
                 <img src= {helpcode} />
             </div>
-                <div className = "col">
-                    <input 
-                    className='form-control my-4'
-                    placeholder="Ingrese mail"
-                    type="email"
-                    name='email'
-                    onChange={handleInputChange}
-                    />           
-                </div>
-                <div className = "col">
-                    <input 
-                    className='form-control my-4'
-                    placeholder="Ingrese contraseña"
-                    type="password"
-                    name='password'
-                    onChange={handleInputChange}
-                    />    
-                </div>
-                <div className = "col">
-                    <button 
-                    className="btn btn-success"
-                    type="submit"
-                    >Iniciar sesión
-                    </button>
-                </div>
-                    
+                <input 
+                className='form-control my-4'
+                placeholder="Ingrese mail"
+                type="email"
+                name='email'
+                onChange={handleInputChange}
+                />           
+                <input 
+                className='form-control my-4'
+                placeholder="Ingrese contraseña"
+                type="password"
+                name='password'
+                onChange={handleInputChange}
+                />    
+                <button 
+                className="btn btn-success"
+                type="submit"
+                >Iniciar sesión
+                </button>  
                 <p className = "col">
-                <a href="#">¿Olvidaste tu clave?</a>
+                <a href='#'>¿Olvidaste tu contraseña?</a>
                 </p>
-                <div className = "col">
-                    <button 
-                    className="btn btn-success"
-                    type="button"
-                    onClick={loginGoogle}
-                    >Ingresa con google
-                    </button>
-                </div>
+                <button 
+                className="btn btn-success"
+                type="button"
+                onClick={loginGoogle}
+                >Ingresa con google
+                </button>
                 <p>¿No tienes una cuenta?</p>
-                <div className = "col">
-                    <button 
-                    className="btn btn-success"
-                    type="button">Registrate
-                    </button>
-                </div>
+                <button 
+                className="btn btn-success"
+                type="button">Registrate
+                </button>
+                
+                {error && <p>{error}</p>}
             </form>
-            {error && <p>{error}</p>}
         </div>    
         
     );

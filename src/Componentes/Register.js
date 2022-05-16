@@ -25,10 +25,10 @@ export function Register () {
         }        
     };      
     return(   
-        <div className='row'>
-            <div className = "col-sm-8">
+        <div className='container'>
+            <div className = "col-sm-7">
             </div>
-            <form className = "col-sm-4" onSubmit={handleSubmit}>
+            <form className = "col-sm-5" onSubmit={handleSubmit}>
                 <div className="helpcode">
                     <img src= {helpcode} />
                 </div>

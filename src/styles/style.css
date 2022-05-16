@@ -17,14 +17,12 @@ p{
 a{
     color: white;
 }
-.col-sm-4 {
+.col-sm-5 {
     background-color: rgb(70, 78, 74);
     padding: 1em;
     border-radius: 2em;
     width: 20em;
     height: 30em;
-}
-.btn-success {
     justify-content: center;
     align-items: center;
 }
@@ -34,4 +32,8 @@ img {
     justify-content: center;
     align-self: center;
     border-radius: 1em;
+}
+.container {
+    display: flex;
+    
 }
