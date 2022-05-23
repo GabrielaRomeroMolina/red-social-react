@@ -25,13 +25,13 @@ export function Register () {
                 setError("usuario no registrado");
             }
             else if(error.code==="auth/wrong-password"){
-                setError("contraseña incorrecta");
+                setError("Contraseña incorrecta");
             }
             else if(error.code==="auth/invalid-email"){
-                setError("correo invalido")
+                setError("Correo invalido")
             }
             else if(error.code==="auth/internal-error"){
-                setError("ingrese contraseña")
+                setError("Ingrese contraseña")
             }
             else if(error.code==="auth/weak-password"){
                 setError("La contraseña debe tener al menos 6 caracteres")
@@ -68,7 +68,7 @@ export function Register () {
                 className="btn btn-success"
                 type="submit">Registrarme</button>
                 
-                {error && <p>{error}</p>}
+                {error && <p className='error'>{error}</p>}
             </form>
         </div>    
         

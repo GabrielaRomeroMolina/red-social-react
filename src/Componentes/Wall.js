@@ -1,10 +1,24 @@
-import {Fragment, useState} from 'react';
+import {useState, useEffect} from 'react';
 import '../styles/style.css';
 import  helpcode from '../assets/img/Help.png'
+import React from 'react';
+import { db } from '../firebase';
+import {useChat} from './useChat';
 
-export function Wall() {
+
+export function Wall (){
+    /*const [message, setMessage] = React.useState('');
+    const sendMessage = (e)=>{
+        e.preventDefault();
+        db.collecction('messages').add({
+            timestamp: Date.now(),
+            message
+        });
+    }*/
+    /*Capturar el valor que ingresa el usuario, darle un evento al boton, pasar funcion de firebase que guarda post*/
+    /*Traer post*/
     return(
-        <div className='flex-fluid'>
+        <div className='flex'>
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div className="helpcode">
                     <img src= {helpcode} />
@@ -14,22 +28,22 @@ export function Wall() {
                 <div>
                     <input 
                     className='form-control'
-                    placeholder="Nombre"
+                    placeholder="Ingrese mensaje"
                     type="text"
-                    />   
+                    /*value={message}*/
+                    /*onChange={(e) => setMessage(e.target.value)}*/
+                    />
                 </div>
-                <div>
-                <textarea 
-                className='form-control'
-                id="publicación" name="publicación">
-                </textarea>
+                <div className='Chat'>
                 </div>
                 <div>
                     <button 
+                    /*onclick={sendMessage}*/
                     className="btn btn-success" 
                     type="submit">Publicar</button>
                 </div>
             </form>
+            
         </div>    
     );
-}
+};

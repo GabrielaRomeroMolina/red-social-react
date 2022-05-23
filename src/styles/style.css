@@ -23,8 +23,6 @@ a{
     border-radius: 2em;
     width: 20em;
     height: 30em;
-    justify-content: center;
-    align-items: center;
 }
 img {
     width: 5em;
@@ -35,5 +33,19 @@ img {
 }
 .container {
     display: flex;
+    
+}
+.error {
+    color: rgb(210, 20, 20);
+}
+.flex {
+    display: container;
+    width: 100%;
+}
+.Chat {
+    background-color: white;
+    color: rgb(100, 222, 13);
+    margin-top: 1em;
+    margin-bottom: 1em;
     
 }

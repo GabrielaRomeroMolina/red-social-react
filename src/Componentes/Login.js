@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
-import { useAuth } from '../context/authContext'
-import  helpcode from '../assets/img/Help.png'
+import { useAuth } from '../context/authContext';
+import  helpcode from '../assets/img/Help.png';
 
 
 export function Login(){ 
@@ -23,22 +23,27 @@ export function Login(){
                 navigate("/Wall")
             }catch(error){
                 if(error.code==="auth/user-not-found"){
-                    setError("usuario no registrado");
+                    setError("Usuario no registrado");
                 }
                 else if(error.code==="auth/wrong-password"){
-                    setError("contraseña incorrecta");
+                    setError("Contraseña incorrecta");
                 }
                 else if(error.code==="auth/invalid-email"){
-                    setError("correo invalido")
+                    setError("Correo invalido")
                 }
                 else if(error.code==="auth/internal-error"){
-                    setError("ingrese contraseña")
+                    setError("Ingrese contraseña")
                 }
                 /*setError(error.message);*/
             }              
         };
-        const loginGoogle = () => {
-            google(); 
+        const loginGoogle = (event) => {
+            event.preventDefault()
+            google();
+            navigate("/Wall") 
+        }
+        const botonRegister = () => {
+            navigate("/Register")
         }
     return(
         <div className='container'>   
@@ -79,10 +84,10 @@ export function Login(){
                 <p>¿No tienes una cuenta?</p>
                 <button 
                 className="btn btn-success"
-                type="button">Registrate
+                type="button"
+                onClick={botonRegister}>Registrate
                 </button>
-                
-                {error && <p>{error}</p>}
+                {error && <p className='error'>{error}</p>}
             </form>
         </div>    
         
