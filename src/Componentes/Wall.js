@@ -7,6 +7,14 @@ import {useChat} from './useChat';
 
 
 export function Wall (){
+    const [message, setMessage] = useState({
+        messageUp:'',
+    })
+    const handleInputChange=({target:{name, value}}) => {
+        setMessage({...message,[name] : value}) 
+    };
+
+    
     /*const [message, setMessage] = React.useState('');
     const sendMessage = (e)=>{
         e.preventDefault();
@@ -31,7 +39,8 @@ export function Wall (){
                     placeholder="Ingrese mensaje"
                     type="text"
                     /*value={message}*/
-                    /*onChange={(e) => setMessage(e.target.value)}*/
+                    onChange={handleInputChange}
+                    name="messageUp"
                     />
                 </div>
                 <div className='Chat'>
